@@ -3,6 +3,15 @@ DataHaven Style Guide for Plots
 Nathan
 7/15/2020
 
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 16px;
+      font-family: "Source Sans Pro"
+  }
+  
+</style>
+
 # Introduction
 
 Data visualization is never purely objective. There is always a story we
@@ -93,7 +102,7 @@ blue light sensitivity.
 
 <div class="figure" style="text-align: center">
 
-<img src="examples/colors/iris_colors_base.png" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" /><img src="examples/colors/iris_colors_deut.png" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" /><img src="examples/colors/iris_colors_pro.png" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" />
+<img src="examples/colors/iris_colors_base.png" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" /><img src="examples/colors/iris_colors_deut.png" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" /><img src="examples/colors/iris_colors_pro.PNG" alt="Standard vision (top left), deuternaopia (top right), and proteranopia (bottom)." width="49%" height="25%" />
 
 <p class="caption">
 
@@ -131,7 +140,17 @@ divisions similarly play into cultural norms and color association, but
 should in almost every case be avoided when discussing their associated
 dimensions (e.g., don’t use pink and blue for gender).
 
-![](examples/gender_plot.png)
+<div class="figure" style="text-align: center">
+
+<img src="examples/gender_plot.png" alt="Colors carry connotations to be conscious of." width="49%" height="25%" />
+
+<p class="caption">
+
+Colors carry connotations to be conscious of.
+
+</p>
+
+</div>
 
 Broader connotations outside of any specific combination of colors
 should also be considered. Noticeably brighter or darker colors
@@ -145,7 +164,17 @@ of their emotional connotation.
 Here are some go-to categorical palettes that can be your starting
 point:
 
-![](examples/qualitative_palettes.png)
+<div class="figure" style="text-align: center">
+
+<img src="examples/qualitative_palettes.png" alt="Example qualitative palettes." width="49%" height="25%" />
+
+<p class="caption">
+
+Example qualitative palettes.
+
+</p>
+
+</div>
 
 Cases where more than five colors are truly needed are rare. You can
 usually combine colors or drop the use of colors entirely in these
@@ -156,7 +185,17 @@ palettes from these libraries.
 
 For sequential palettes, you can try:
 
-![](examples/seq_palettes.png)
+<div class="figure" style="text-align: center">
+
+<img src="examples/seq_palettes.png" alt="Example sequential palettes." width="49%" height="25%" />
+
+<p class="caption">
+
+Example sequential palettes.
+
+</p>
+
+</div>
 
 If you need to use a continuous palette instead, you should instead
 first consider if you can bin your data and use a sequential palette

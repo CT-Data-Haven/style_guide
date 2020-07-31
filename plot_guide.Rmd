@@ -4,6 +4,14 @@ author: "Nathan"
 date: "7/15/2020"
 output: github_document
 ---
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 16px;
+      font-family: "Source Sans Pro"
+  }
+  
+</style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, 
@@ -70,10 +78,10 @@ text_example_base <- fake_data %>%
   annotate("text", x = 2, y = 12.2, color = "black", label = "Group A", size = 6) + 
   geom_line(size = 1) + 
   scale_color_manual(values = c("black","red", "blue")) + 
-  labs(x = "Short X-axis title in size 14 plain font", 
+  labs(x = "Short X-axis title in medium plain font", 
        y = "Short Y-axis title", 
-       title = "Concise conclusion in size 18 bolded font.", 
-       subtitle = "Qualifier or description in size 14 plain font. Note the sentence case as opposed to title case.",
+       title = "Concise conclusion in large bolded font.", 
+       subtitle = "Qualifier or description in medium plain font. Note the sentence case as opposed to title case.",
        caption = "Source: Connecticut Department of Fake Data. Nathan Kim, DataHaven.\nDescription of methods as needed on a new line."
        ) + 
   theme(text = element_text(family = "Source Sans Pro"), 
@@ -116,7 +124,7 @@ Colorblindness affects around 1/12 of those with a single X chromosome (the male
 #can't find where i put the code for this lol
 knitr::include_graphics(c("examples/colors/iris_colors_base.png",
                           "examples/colors/iris_colors_deut.png", 
-                          "examples/colors/iris_colors_pro.png"))
+                          "examples/colors/iris_colors_pro.PNG"))
 ``` 
 
 Picking colors like red and green in a single plot can make it difficult or impossible to distinguish colors on that chart. Even in cases where it is possible to distinguish colors, the trends we want to highlight may lose impact or change meaning if the colors change drastically. To ensure that our graphics are accessible as possible, you should choose easily distinguishable colors and review your plots in software like [Sim Daltonism](https://apps.apple.com/us/app/sim-daltonism/id693112260?mt=12) (Mac) or [ColourSimulations](https://www.microsoft.com/en-us/p/coloursimulations/9nblggh4385h) (Windows) before publishing. 
@@ -145,14 +153,19 @@ maybe_good <- ggplot(gender_dta, aes(x = Weight, y = Height, color = Gender)) +
   geom_line(size = 2) + 
   labs(title = "Better: Just uses different colors :)",
        caption = "Please don't pay attention to the axis titles or the actual values, I'm not creative") + 
-  scale_color_manual(values = c("#0B3954","#FF7F11", "#C94277")) 
+  scale_color_manual(values = c("#0B3954","#FF7F11", "#C94277")) +
+  theme(plot.caption = element_text(size = rel(.5)))
 gender_plot <- plot_grid(bad_sexist, bad_confusing, maybe_good,
           ncol = 1) 
 ggsave("examples/gender_plot.png", plot = gender_plot, width = 6, height =8, dpi = 300)
 
 ```
 
-![](examples/gender_plot.png)
+```{r, echo=FALSE, out.width="49%", out.height="25%",fig.cap="Colors carry connotations to be conscious of.",fig.show='hold',fig.align='center'}
+#can't find where i put the code for this lol
+knitr::include_graphics("examples/gender_plot.png")
+``` 
+
 
 Broader connotations outside of any specific combination of colors should also be considered. Noticeably brighter or darker colors generally stick out more, which can be very useful when highlighting a certain trend. Bright red might be connoted with “wrong” no matter what other colors are used. Blue and green are called “cool” colors because of their emotional connotation. 
 
@@ -188,7 +201,8 @@ col41 <- ggpal(c("#00A796", "#F3716D","#C15FA5", "#75BEE9"))
 col42 <- ggpal(c("#F68B33", "#0077C1","#00A796","#C05FA5"))
 #5
 col51 <- ggpal(c("#00A796", "#F17060", "#C15FA5", "#F0B537", "#75BEE9"))
-col52 <- ggpal(c("#008080", "#92B69E", "#F6EDBD", "#E6A272", "#CA562C")) 
+#"safe" from rcartocolor
+col52 <- ggpal(c("#88CCEE", "#CC6677", "#DDCC77", "#117733", "#888888")) 
 
 plot_lab <- function(lab){
   ggdraw() + draw_label(lab, fontfamily = "Source Sans Pro", 
@@ -211,7 +225,9 @@ qual_pals <- cowplot::plot_grid(
 ggsave("examples/qualitative_palettes.png", plot = qual_pals, width = 3, height =5, dpi = 300)
 ```
 
-![](examples/qualitative_palettes.png)
+```{r, echo=FALSE, out.width="49%", out.height="25%",fig.cap="Example qualitative palettes.",fig.show='hold',fig.align='center'}
+knitr::include_graphics("examples/qualitative_palettes.png")
+``` 
 
 Cases where more than five colors are truly needed are rare. You can usually combine colors or drop the use of colors entirely in these scenarios. In the situations where they are indeed necessary or useful, check out the palettes in `rcartocolor` or `RColorBrewer` for expansive options. The above palettes were also made by combining and modifying palettes from these libraries.
 
@@ -236,7 +252,10 @@ ggsave("examples/seq_palettes.png", plot = seq_pals, width = 3.5, height =3.5, d
 
 ```
 
-![](examples/seq_palettes.png)
+```{r, echo=FALSE, out.width="49%", out.height="25%",fig.cap="Example sequential palettes.",fig.show='hold',fig.align='center'}
+knitr::include_graphics("examples/seq_palettes.png")
+``` 
+
 
 If you need to use a continuous palette instead, you should instead first consider if you can bin your data and use a sequential palette instead. It's often hard for the human eye to look at a certain color and think "4", but look at a darker shade and know if it means "6" or "600". It's much easier to make this judgment if there are a few set options to match colors to. 
 
