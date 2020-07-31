@@ -1,0 +1,11 @@
+Element,Relative size,Face,Notes
+Title,1.2,Bold,"Short, clear message. Should be most noticeable piece of text. "
+Subtitle,1,Plain,Qualifier or description to the title. 
+Caption,0.7,"Plain, or italics if necessary","Extra information on the data, methods, sources and other credits. Can take multiple lines. "
+Axis titles,1,Bold if necessary,"Not always needed -- e.g. if x-axis has four slots for ""Asian"", ""Black"", ""Latino"" and ""white"", ""Race"" is not needed."
+Axis tick labels,0.8,Plain,"Use commas, dollar signs, and intuitive break points to make tick labels simple. "
+Legend title,1,Bold if necessary,Also not always needed. 
+Legend text,0.8,Plain,"Can often go onto the plot itself to label geoms, which is often easier to read than switching back and forth from the legend to the plot. "
+Annotations,1.1,"Plain, but match the thickness of the lines plotted",Be careful not to clutter the plot. 
+Strip text,0.8,Plain,
+Logo,1:10 with the main plot,,Useful for social media plots. 
